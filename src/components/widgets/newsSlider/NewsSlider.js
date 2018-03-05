@@ -7,15 +7,20 @@ export default class NewsSlider extends Component {
         news: []
     }
     componentWillMount() {
-        axios.get(`http://localhost:3030/articles?_start=0&_end=3`)
+        axios.get(`http://localhost:3030/articles?_start=${this.props.start}&_end=${this.props.end}`)
             .then(resp => {
                 this.setState({ news: resp.data })
             })
     }
     render() {
+        const {type, settings} = this.props
+        const {news} = this.state
         return (
             <div>
-                <SliderTemplates data={this.state.news}/>
+                <SliderTemplates
+                    data={news}
+                    type={type}
+                    settings={settings} />
             </div>
         )
     }

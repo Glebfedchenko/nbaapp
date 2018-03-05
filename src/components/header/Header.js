@@ -17,7 +17,7 @@ export default class Header extends Component {
                             onClick={onHideNav}
                             name='bars' style={{ color: '#dfdfdf', padding: '10px', cursor: 'pointer' }} />
                     </div>
-                    <Link to='/' className='logo'><img src={logo} alt="" /></Link>
+                    <Link to='/' className='logo'><img className='logoI' src={logo} alt="" /></Link>
                 </div>
             </div>
         )

@@ -7,7 +7,7 @@ export default class Footer extends Component {
     render() {
         return (
             <div className='footer'>
-                <Link to='/' className='logo'><img src={logo} alt="" /></Link>
+                <Link to='/' className='logo'><img className='footerLogo' src={logo} alt="" /></Link>
                 <div className="right">
                     {`@NBA ${new Date().getFullYear()} All rights reserved`}
                 </div>
