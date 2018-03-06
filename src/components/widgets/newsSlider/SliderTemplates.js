@@ -28,7 +28,7 @@ export default class SliderTemplates extends Component {
                                 }}></div>
                                 <Link to={`/articles/${item.id}`}>
                                     <div className='featured_caption'>
-                                        {item.title} {i}
+                                        {item.title}
                                     </div>
                                 </Link>
                         </div>

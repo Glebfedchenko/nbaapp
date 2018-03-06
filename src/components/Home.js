@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import NewsSlider from './widgets/newsSlider/NewsSlider'
 import NewsList from './widgets/newsList/NewsList'
+import VideosList from './widgets/videosList/VideosList'
 
 export default class Home extends Component {
     render() {
@@ -17,8 +18,15 @@ export default class Home extends Component {
                 <NewsList
                     type='card'
                     load={true}
-                    start={2}
-                    amount={4}
+                    start={0}
+                    amount={3}
+                />
+                <VideosList
+                    type='card'
+                    title={true}
+                    loadmore={false}
+                    start={0}
+                    amount={3}
                 />
             </div>
         )
