@@ -90,7 +90,7 @@ export default class NewsList extends Component {
                     {this.showNews(type)}
                 </TransitionGroup>
                 <Button type='loadmore'
-                    loadMore={()=>this.loadMore()}
+                    loadmore={()=>this.loadMore()}
                     text='Load More News' />
             </div>
         )

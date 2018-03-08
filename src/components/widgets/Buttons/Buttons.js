@@ -9,9 +9,15 @@ export default class Button extends Component {
             case 'loadmore':
                 template =
                     <div className='blue_btn'
-                        onClick={this.props.loadMore}>
+                        onClick={this.props.loadmore}>
                         {this.props.text}
                     </div>
+                break
+            case 'linkTo':
+                template = 
+                    <Link to={this.props.linkTo} className='blue_btn'>
+                        {this.props.cta}
+                    </Link>
                 break
             default: template = null
         }

@@ -24,7 +24,7 @@ export default class Home extends Component {
                 <VideosList
                     type='card'
                     title={true}
-                    loadmore={false}
+                    loadmore={true}
                     start={0}
                     amount={3}
                 />
