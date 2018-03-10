@@ -9,8 +9,8 @@ export default class Home extends Component {
             <div>
                 <NewsSlider
                     type='featured'
-                    start={0}
-                    end={3}
+                    start={6}
+                    end={10}
                     settings={{
                         dots: false
                     }}

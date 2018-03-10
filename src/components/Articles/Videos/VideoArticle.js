@@ -2,11 +2,14 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import Header from './Header'
 import '../articles.scss'
+import VideosRelated from '../../widgets/videosList/VideosRelated'
 
 export default class VideoArticle extends Component {
     state = {
         article: [],
-        team: []
+        team: [],
+        teams: [],
+        related: []
     }
     componentWillMount() {
         axios.get(`http://localhost:3030/videos?id=${this.props.match.params.id}`)
@@ -18,24 +21,40 @@ export default class VideoArticle extends Component {
                             article: article,
                             team: resp.data
                         })
+                        this.getRelated();
                     })
             })
     }
-
+    getRelated = () => {
+        axios.get(`http://localhost:3030/teams`)
+            .then(resp => {
+                let teams = resp.data
+                axios.get(`http://localhost:3030/videos?q=${this.state.team[0].city}&_limit=3`)
+                    .then(resp => {
+                        this.setState({
+                            teams,
+                            related: resp.data
+                        })
+                    })
+            })
+    }
     render() {
         const { article, team } = this.state
         return (
             <div>
-                <Header teamData={team[0]}/>
+                <Header teamData={team[0]} />
                 <div className="videoWrapper">
                     <h1>{article.title}</h1>
-                     <iframe 
+                    <iframe
                         title='videoplayer'
                         width='100%'
                         height='300px'
                         src={`https://www.youtube.com/embed/${article.url}`} >
-                        </iframe>
+                    </iframe>
                 </div>
+                <VideosRelated
+                    data={this.state.related}
+                    teams={this.state.teams} />
             </div>
         )
     }
